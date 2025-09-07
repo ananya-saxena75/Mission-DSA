@@ -1,0 +1,22 @@
+public int countStudents(int[] students, int[] sandwiches) {
+    int ones = 0, zeros = 0;
+
+    // Count preferences
+    for (int s : students) {
+        if (s == 1) ones++;
+        else zeros++;
+    }
+
+    // Serve sandwiches
+    for (int s : sandwiches) {
+        if (s == 0) {
+            if (zeros == 0) return ones;
+            zeros--;
+        } else {
+            if (ones == 0) return zeros;
+            ones--;
+        }
+    }
+
+    return 0;
+}
