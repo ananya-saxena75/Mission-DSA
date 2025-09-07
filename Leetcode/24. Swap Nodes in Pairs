@@ -1,0 +1,15 @@
+public ListNode swapPairs(ListNode head) {
+    // Base case: if list is empty or has only one node
+    if (head == null || head.next == null) return head;
+
+    // Nodes to be swapped
+    ListNode first = head;
+    ListNode second = head.next;
+
+    // Recursively swap the rest
+    first.next = swapPairs(second.next);
+    second.next = first;
+
+    // Return new head
+    return second;
+}
