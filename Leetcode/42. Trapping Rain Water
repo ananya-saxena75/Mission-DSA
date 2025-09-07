@@ -1,0 +1,24 @@
+class Solution {
+    public int trap(int[] height) {
+      int ml=height[0];
+      int n=height.length;
+      int mr=height[n-1];
+      int i,j,l=0,r=n-1,c=0;
+      while (l<r)
+      {
+        if(ml<mr)
+        {
+          l=l+1;
+          ml=Math.max(ml,height[l]);
+          c=c+ml-height[l];
+        }
+        else
+        {
+            r=r-1;
+            mr=Math.max(mr,height[r]);
+            c=c+mr-height[r];
+        }
+      }
+      return c;
+    }
+}
