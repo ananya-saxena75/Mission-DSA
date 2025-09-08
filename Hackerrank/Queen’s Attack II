@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int r_q = sc.nextInt();
+        int c_q = sc.nextInt();
+        
+        int[][] obstacles = new int[k][2];
+        Set<String> obs = new HashSet<>();
+        for (int i = 0; i < k; i++) {
+            int r = sc.nextInt();
+            int c = sc.nextInt();
+            obs.add(r + "," + c);
+        }
+
+        int[][] directions = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+        int count = 0;
+
+        for (int[] d : directions) {
+            int r = r_q + d[0], c = c_q + d[1];
+            while (r > 0 && r <= n && c > 0 && c <= n && !obs.contains(r + "," + c)) {
+                count++;
+                r += d[0];
+                c += d[1];
+            }
+        }
+
+        System.out.println(count);
+    }
+}
