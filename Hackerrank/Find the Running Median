@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        PriorityQueue<Integer> low = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> high = new PriorityQueue<>();
+
+        for (int i = 0; i < n; i++) {
+            int num = sc.nextInt();
+            if (low.isEmpty() || num <= low.peek()) low.add(num);
+            else high.add(num);
+
+            if (low.size() > high.size() + 1) high.add(low.poll());
+            else if (high.size() > low.size()) low.add(high.poll());
+
+            if (low.size() == high.size())
+                System.out.printf("%.1f\n", (low.peek() + high.peek()) / 2.0);
+            else
+                System.out.printf("%.1f\n", (double) low.peek());
+        }
+    }
+}
+
