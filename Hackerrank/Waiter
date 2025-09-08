@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+        Stack<Integer> A = new Stack<>();
+        for (int i = 0; i < n; i++) A.push(sc.nextInt());
+
+        int[] primes = new int[q];
+        int num = 2, idx = 0;
+        while (idx < q) {
+            if (isPrime(num)) primes[idx++] = num;
+            num++;
+        }
+
+        for (int i = 0; i < q; i++) {
+            Stack<Integer> B = new Stack<>();
+            Stack<Integer> nextA = new Stack<>();
+            while (!A.isEmpty()) {
+                int val = A.pop();
+                if (val % primes[i] == 0) B.push(val);
+                else nextA.push(val);
+            }
+            while (!B.isEmpty()) System.out.println(B.pop());
+            A = nextA;
+        }
+        while (!A.isEmpty()) System.out.println(A.pop());
+    }
+
+    static boolean isPrime(int x) {
+        if (x < 2) return false;
+        for (int i = 2; i*i <= x; i++) if (x % i == 0) return false;
+        return true;
+    }
+}
