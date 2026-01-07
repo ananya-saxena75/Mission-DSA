@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private static final long MOD = 1_000_000_007L;
+    private long totalSum = 0;
+    private long maxProduct = 0;
+
+    public int maxProduct(TreeNode root) {
+        totalSum = sumTree(root);
+        postorder(root);
+        return (int)(maxProduct % MOD);
+    }
+
+    private long sumTree(TreeNode node) {
+        if (node == null) return 0;
+        return node.val + sumTree(node.left) + sumTree(node.right);
+    }
+
+    private long postorder(TreeNode node) {
+        if (node == null) return 0;
+        long left = postorder(node.left);
+        long right = postorder(node.right);
+        long s = node.val + left + right;
+        long prod = s * (totalSum - s);
+        if (prod > maxProduct) maxProduct = prod;
+        return s;
+    }
+}
