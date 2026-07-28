@@ -29,6 +29,7 @@ I practice Data Structures & Algorithms regularly to sharpen my problem-solving 
 
 - 💻 LeetCode: [anasaxena2550](https://leetcode.com/u/anasaxena2550/)
 - ⚙️ Hackerrank: [ananya_saxena49](https://www.hackerrank.com/profile/ananya_saxena49)
+- 🔗 LinkedIn:[ananya-saxena](https://www.linkedin.com/in/ananya-saxena-5261bb35a/)
 
 ## 📈 Progress
 
