@@ -9,10 +9,10 @@ This repository chronicles my journey through algorithmic chaos: solving, debugg
 I practice Data Structures & Algorithms regularly to sharpen my problem-solving skills and prepare for technical interviews. This repo is where all my solutions, notes, and progress live.
 
 ## 📂 Repository Structure
-Mission-DSA
 
-Hackerrank/ # Solutions to HackerRank problems
-Leetcode/ # Solutions to LeetCode problems
+    Mission-DSA/
+    ├── Hackerrank/     # Solutions to HackerRank problems
+    └── Leetcode/       # Solutions to LeetCode problems
 
 ## 🧠 Topics Covered
 
